@@ -14,6 +14,7 @@ int main(void) {
     arr2[right] = arr1[right];
     printf("%s\n", arr2);
     sleep(1);
+    system("clear");
     left++;
     right--;
     }
