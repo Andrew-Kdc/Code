@@ -1,0 +1,35 @@
+//冒泡排序
+
+void bubbe_sort(int arr[],int sz)
+{
+     int i = 0;
+    int flag = 1;//假设这一趟已经有序
+    for (i = 0; i<sz; i++) {
+    int j;
+    for (j = 0; j<sz-i-1; j++) {
+        if(arr[j]>arr[j+1]){
+            swap( &arr[j], &arr[j+1]);
+            flag = 0;//本趟排序的数据其实不完全有序
+        }
+        }
+        if (flag == 1) {
+        break;
+        }
+        
+    }
+    
+    
+}
+int main()
+{
+    int arr[] = { 9,8,7,6,5,4,3,2,1,0};
+    int i = 0;
+    int sz = sizeof(arr)/sizeof(arr[0]);
+    bubbe_sort(arr,sz);
+    for (i = 0; i<sz; i++) {
+    printf("%d ", arr[i]);
+    }
+
+
+    return 0;
+}
