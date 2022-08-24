@@ -6,7 +6,7 @@
 #define CO 9
 #define ROW RO+2
 #define COL CO+2
-#define COUNT 80
+#define COUNT 10
 
 void menu()
 {
@@ -85,6 +85,44 @@ int get_mine_count(char mine[ROW][COL],int x,int y)
     mine[x-1][y+1] - 8*'0';
 }
 
+// void spread(char mine[ROW][COL],char show[ROW][COL],int x,int y,int get_mine_count)
+// {
+//     if (get_mine_count == 0) {
+//     show[x][y] = ' ';
+    
+//     spread(show,x,y,get_mine_count);
+//     }
+
+// }
+
+void Openboard(char show[ROW][COL], char mine[ROW][COL], int row, int col)
+{
+	if (row >= 1 && row <= ROW && col >= 1 && col <= COL)
+	{
+		int count=get_mine_count(mine, row, col);
+		if (count != 0)
+		{
+			show[row][col] = count + '0';
+		}
+		else if (show[row][col] != ' ')
+		{
+			show[row][col] = ' ';
+			int i = 0, j = 0;
+			for (i = row - 1; i <= row + 1; i++)
+			{
+				for (j = col - 1; j <= col + 1; j++)
+				{
+					Openboard(show, mine, i,j);
+				}
+			}
+		}
+		else
+		{
+			return;
+		}
+	}
+}
+
 void FindMine(char mine[ROW][COL],char show[ROW][COL],int row,int col)
 {
     int x = 0;
@@ -94,6 +132,7 @@ void FindMine(char mine[ROW][COL],char show[ROW][COL],int row,int col)
     {
     printf("请输入排查雷的坐标：\n");
     scanf("%d%d", &x, &y);
+    system("clear");
     //判断坐标合法性
         if (x>=1 && x<= row && y>=1 && y<=col) 
         {
@@ -105,8 +144,10 @@ void FindMine(char mine[ROW][COL],char show[ROW][COL],int row,int col)
             }else//不是雷
             {
                 //计算周围几个雷
-                int count = get_mine_count(mine,x,y);
-                show[x][y] = count + '0';
+                
+                // int count = get_mine_count(mine,x,y);
+                // show[x][y] = count + '0';
+                Openboard(show, mine, x, y);
                 DisplayBoard(show,RO,CO);
                 win++;
             }
@@ -127,6 +168,7 @@ void game()
     char mine[ROW][COL] = {0};
     //2 排查出雷的信息
     char show[ROW][COL] = {0}; 
+    system("clear");
     //初始化
     InitBoard(mine,ROW,COL, '0');
     InitBoard(show,ROW,COL, '*');
@@ -143,7 +185,7 @@ void test()
 {
     int input = 0;
     srand((unsigned int) time(NULL));
-    do {
+    do{
         menu();
         printf("请选择：");
         scanf("%d", &input);
