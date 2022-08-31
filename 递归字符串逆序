@@ -1,0 +1,51 @@
+#include "stdio.h"
+
+int mystrlen(char* str)
+{
+	int count = 0;
+	while (*str != '\0') 
+	{
+		count++;
+		str++;
+	}
+	return count;
+}
+
+// void reverse(char arr[])
+// {
+// 	int l = 0;
+// 	int r = mystrlen(arr)-1;
+// 	while(l<r)
+// 	{
+// 		int tmp = arr[l];
+// 	arr[l] = arr[r];
+// 	arr[r] = tmp;
+// 	l++;
+// 	r--;
+// 	}	
+// }
+
+void reverse(char arr[])
+{
+	char tmp = arr[0];
+	int len = mystrlen(arr);
+	arr[0] = arr[len-1];
+	arr[len-1] = '\0';
+	if (mystrlen(arr+1)) 
+	{
+		reverse(arr+1);
+	}
+	
+	arr[len-1] = tmp;
+
+}
+
+
+int main()
+{
+	char arr[] = "abcdefg";//fedcba
+	
+	reverse(arr);
+	printf("%s\n", arr);
+	return 0;
+}
