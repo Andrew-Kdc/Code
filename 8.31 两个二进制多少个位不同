@@ -1,0 +1,21 @@
+int getdiffbit(int m, int n)
+{
+	int count = 0;
+	int tmp = m^n;
+	//return mycount(tmp);
+	while (tmp) {
+	tmp = tmp&(tmp-1);
+	count++;
+	}
+	return count;
+}
+
+int main()
+{
+	int m = 0;
+	int n = 0;
+	scanf("%d%d", &m, &n);
+	int count = getdiffbit(m, n);
+	printf("%d", count);
+	return 0;
+}
