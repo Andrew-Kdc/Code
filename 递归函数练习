@@ -1,0 +1,46 @@
+#include "stdio.h"
+//递归函数 输入非负整数 返回组成它的数字之和
+
+// int Digitsum(unsigned int num)
+// {
+// 	if (num>9) 
+// 	{
+// 		return Digitsum(num/10)+ num%10;
+// 	}
+// 	else
+// 	{
+// 	return num;
+// 	}
+// }
+
+
+// int main()
+// {
+// 	unsigned int num = 0;
+// 	scanf("%d", &num);
+// 	int ret = Digitsum(num);
+// 	printf("ret = %d\n", ret);
+// 	return 0;
+// }
+
+//递归实现n的k次方
+double Pow(int n, int k)
+{
+	if (k<0) {
+		return (1.0/(Pow(n, -k)));
+	}else if (k==0) 
+	{
+		return 1;
+	}else {
+		return n*Pow(n,k-1);
+	}
+}
+
+int main()
+{
+	int n = 2;
+	int k = -3;
+	double ret = Pow(n, k);
+	printf("ret = %lf\n", ret);
+	return 0;
+}
