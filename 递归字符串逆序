@@ -31,7 +31,7 @@ void reverse(char arr[])
 	int len = mystrlen(arr);
 	arr[0] = arr[len-1];
 	arr[len-1] = '\0';
-	if (mystrlen(arr+1)) 
+	if (mystrlen(arr+1)>=2) 
 	{
 		reverse(arr+1);
 	}
