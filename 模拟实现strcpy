@@ -3,8 +3,9 @@
 
 //模拟实现strcpy
  
-//  void mystrcpy(char* dest,char* src)
-//  {
+//  void mystrcpy(char* dest,const char* src)
+//  {   //加一句判断是否为空指针
+        或者assert.h
 // 	while(*src != '\0')
 // 	{
 // 		*dest = *src;
