@@ -16,12 +16,16 @@
 // 	*dest = *src;
 //  }
 
- void mystrcpy(char* dest,char* src)
+ char* mystrcpy(char* dest,const char* src)
  {
+ 	//加一句判断是否为空指针
+        或者assert.h
+ 	char* ret = dest;
 	while((*dest++ = *src++))
 	{
 		;		
 	}
+	return ret;
  }
 
 
@@ -29,6 +33,6 @@
  {
 	 char arr1[] = "##############";
 	 char arr2[] = "bit";
-	 mystrcpy(arr1, arr2);
-	 printf("%s\n", arr1);
+	 
+	 printf("%s\n", mystrcpy(arr1, arr2));
  }
