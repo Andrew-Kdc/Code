@@ -1,0 +1,15 @@
+void reverse(char* str)
+{
+
+}
+
+int main()
+{
+	char arr[256] = { 0 };
+	scanf("%s", arr);
+
+	reverse(arr);
+
+	printf("%s\n", arr);
+	return 0;
+}
