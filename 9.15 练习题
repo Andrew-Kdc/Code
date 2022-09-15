@@ -1,0 +1,120 @@
+#include "stdio.h"
+#include "string.h"
+#include "assert.h"
+#include "math.h"
+
+
+//计算 Sn=a+aa+aaa+aaaa+aaaaa=
+
+// int main()
+// {
+// 	int a = 0;
+// 	int n = 0;
+// 	scanf("%d%d", &a, &n);
+// 	int sum = 0;
+// 	int i = 0;
+// 	int ret = 0;
+// 	for (i=0; i<n; i++) 
+// 	{
+// 		ret = ret*10+a;
+// 		sum = sum + ret;
+// 	}
+// 	printf("%d\n", sum);
+// 	return 0;	
+// }
+
+//0-100000 自幂数 每一位的n次方之和
+// int main()
+// {
+// 	int i = 0;
+// 	for (i=0; i<=100000; i++) 
+// 	{
+// 		//1。计算位数 n 2。计算i的每一位的b次方之和、
+// 		//3比较i == sum
+// 		int n = 1;
+// 		int tmp = i;
+// 		int sum = 0;
+// 		while (tmp/=10) 
+// 		{
+// 			n++;
+// 			//i/=10;
+// 		}
+// 		tmp = i;
+// 		while (tmp) 
+// 		{
+// 			sum += pow(tmp%10, n);
+// 			tmp /= 10;
+// 		}
+// 		if (i==sum) {
+// 		printf("%d ", i);
+// 		}		
+// 	}
+
+// 	return 0;
+// }
+
+//打印棱形
+
+// int main()
+// {
+// 	int line = 0;
+// 	scanf("%d", &line);
+// 	//打印上半部分
+// 	int i = 0;
+// 	for (i=0; i<line; i++) 
+// 	{
+// 		//打印空格
+// 		int j = 0;
+// 		for (j=0; j<line-1-i; j++) 
+// 		{
+// 			printf(" ");
+// 		}
+// 		//打印*
+// 		for (j=0; j<2*i+1; j++) 
+// 		{
+// 			printf("*");
+// 		}
+// 		printf("\n");
+// 	}
+// 	//打印下面
+// 	for (i=0; i<line; i++) 
+// 	{
+// 		//打印空格
+// 		int j = 0;
+// 		for (j=0; j<=i; j++) 
+// 		{
+// 			printf(" ");
+// 		}
+// 		//打印*
+// 		for (j=0; j<2*(line-i-1)-1; j++) 
+// 		{
+// 			printf("*");
+// 		}
+// 		printf("\n");
+// 	}
+// }
+
+//喝汽水问题 1瓶水一块钱 两个空瓶换一瓶 20元喝多少瓶
+int main()
+{
+	int money = 0;
+	int total = 0;
+	int empty = 0;
+	scanf("%d", &money);
+	//买回的汽水喝掉
+	if (money == 0) {
+	total=0;
+	}else{
+		total = 2*money-1;
+	}
+	// total = money;
+	// empty = money;
+	// //换来的汽水
+	// while (empty>=2) 
+	// {
+	// 	total += empty / 2;
+	// 	empty = empty / 2 + empty%2;
+	// }
+	printf("total = %d\n", total);
+	return 0;
+}
