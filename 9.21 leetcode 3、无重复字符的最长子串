@@ -1,0 +1,20 @@
+int lengthOfLongestSubstring(char * s){
+    int result = 0;
+    char *left = s , *right = s , *p;
+
+    while(*right != '\0'){
+
+        for(p = left; p < right ; p++){
+            if(*p == *right){
+                left = p + 1;
+                break;
+            }
+        }
+
+        result = (right - left + 1) > result ? (right - left + 1) : result;
+
+        right++;
+    }
+
+    return result;
+}
